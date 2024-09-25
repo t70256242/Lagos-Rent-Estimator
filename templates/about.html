@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About - Lagos Rent Estimator</title>
+        <!-- Favicons -->
+        <link rel="icon" type="image/svg+xml" href="../static/img/icon-lagos-rent-estimator-transparent_v2.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <style>
+
+
+
+
+            h1 {
+                margin: 0;
+            }
+
+            main {
+                max-width: 800px;
+                margin: 50px auto;
+                background-color: white;
+                padding: 30px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h2 {
+                color: #304463;
+                font-size: 28px;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            a {
+                font-size: 16px;
+                color: #052c65;
+            }
+
+
+        </style>
+    </head>
+    <body>
+
+        <header class="site-navbar site-navbar-target" role="banner">
+            <div class="container px-5">
+                <div class="row align-items-center">
+
+                    <!-- Left Navigation (Home Link) -->
+                    <div class="col-lg-4 d-flex justify-content-start">
+                        <nav class="site-navigation" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav d-none d-lg-flex">
+                                <li class="active">
+                                    <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Logo Section -->
+                    <div class="col-lg-4 text-center">
+                        <div class="site-logo">
+                            <a href="{{ url_for('home') }}">
+                                <img src="../static/img/logo-lagos-rent-estimator.png" alt="Lagos Rent Estimator" style="width: 250px; height: auto;">
+                            </a>
+                        </div>
+
+                        <!-- Mobile Menu Toggle Button -->
+                        <div class="ml-auto toggle-button d-inline-block d-lg-none">
+                            <a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black">
+                                <span class="icon-menu h3 text-black">&#9776;</span> <!-- Hamburger icon -->
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Navigation (About Link) -->
+                    <div class="col-lg-4 d-flex justify-content-end">
+                        <nav class="site-navigation" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nav d-none d-lg-flex">
+                                <li>
+                                    <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Dropdown Menu for Mobile -->
+                    <div class="dropdown-menu-container">
+                        <ul class="site-menu main-menu js-clone-nav d-lg-none">
+                            <li class="active">
+                                <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <h2>Lagos Rent Estimator</h2>
+            <p>
+                Welcome to the Lagos Rent Estimator, your go-to tool for predicting rental prices in Lagos, Nigeria based on key property features. A platform designed to help individuals, property managers, and real estate professionals gain insights into current market trends and rental values across various neighborhoods in Lagos.
+            </p>
+
+            <h2>How It Works</h2>
+            <p>
+                The Lagos Rent Estimator leverages a machine learning model, specifically a <strong><a href="https://www.geeksforgeeks.org/python-decision-tree-regression-using-sklearn/">Decision Tree Regressor</a></strong>, trained on historical rent data across Lagos, achieving an accuracy score of over 85%. This indicates a high level of success in predicting rental prices, as the model can accurately estimate rents 85% of the time, making it a reliable tool for providing rent predictions in the Lagos area. By inputting details such as property type, location, number of bedrooms, and number of bathrooms, The Model predicts a reasonable rental estimate based on these parameters.
+            </p>
+
+            <p>
+                This approach allows for more accurate rent predictions, giving users an edge when negotiating or evaluating property prices. The Model predictions consider various factors that influence rent prices in Lagos, ensuring that you are equipped with the most relevant information.
+            </p>
+
+            <h2>Why Choose Lagos Rent Estimator?</h2>
+            <p>
+                Whether you are a tenant, a landlord, or a real estate agent, having access to reliable rent price estimates can help you make better decisions. This platform offers:
+            </p>
+            <ul>
+                <li>Accurate predictions based on data-driven models.</li>
+                <li>Instant results with an easy-to-use interface.</li>
+                <li>Coverage of key neighborhoods across Lagos, including Lekki, Ajah, Alimosho, Gbagada, and more.</li>
+            </ul>
+
+            <h2>Mission</h2>
+            <p>
+                My mission is to bring transparency and ease to the Lagos real estate market by providing a powerful tool that empowers users to make informed decisions. I am dedicated to refining The  Model and expanding coverage to deliver the most accurate predictions possible.
+            </p>
+
+            <h2>Contact</h2>
+            <p>
+                If you have any questions, feedback, or inquiries, feel free to <strong><a href="{{ url_for('contact') }}">Get in touch!</a></strong>.
+            </p>
+        </main>
+
+
+
+
+        <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const toggleButton = document.querySelector(".site-menu-toggle");
+                    const dropdownMenuContainer = document.querySelector(".dropdown-menu-container");
+                    let hideTimeout; // Variable to hold the timeout reference
+
+                    toggleButton.addEventListener("click", function(e) {
+                        e.preventDefault(); // Prevent default anchor behavior
+
+                        // Toggle the 'show' class on the dropdown menu container
+                        dropdownMenuContainer.classList.toggle("show");
+
+                        // Clear any existing timeout to avoid resetting it prematurely
+                        if (hideTimeout) {
+                            clearTimeout(hideTimeout);
+                        }
+
+                        // Set a timeout to hide the menu after 9 seconds
+                        if (dropdownMenuContainer.classList.contains("show")) {
+                            hideTimeout = setTimeout(function() {
+                                dropdownMenuContainer.classList.remove("show");
+                            }, 6000); // 9000 milliseconds = 9 seconds
+                        }
+                    });
+                });
+            </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    </body>
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 px-5 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+          <span class="mb-3 mb-md-0 text-body-secondary">© {{ times.year }} EA Shed</span>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3"><a class="text-body-secondary" href="https://x.com/ayo44663"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path d="M18.363 5.636a1 1 0 0 0-1.414 0L12 10.172 7.051 5.223a1 1 0 0 0-1.415 1.415L10.586 12 5.636 16.95a1 1 0 0 0 1.415 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/>
+                    </svg></a>
+              </li>
+              <li class="ms-3"><a class="text-body-secondary" href="https://github.com/t70256242"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.79 8.205 11.379.6.11.82-.261.82-.578v-2.176c-3.338.728-4.048-1.606-4.048-1.606-.546-1.388-1.333-1.757-1.333-1.757-1.088-.746.082-.73.082-.73 1.205.086 1.838 1.239 1.838 1.239 1.071 1.835 2.809 1.305 3.494.998.108-.776.418-1.305.762-1.605-2.664-.303-5.467-1.332-5.467-5.927 0-1.308.469-2.377 1.237-3.217-.123-.303-.535-1.52.116-3.163 0 0 1.008-.323 3.3 1.23.957-.266 1.983-.399 3.002-.404 1.018.005 2.037.139 2.995.405 2.289-1.547 3.294-1.237 3.294-1.237.652 1.644.24 2.86.118 3.163.767.84 1.237 1.91 1.237 3.217 0 4.603-2.808 5.622-5.475 5.921.43.371.815 1.106.815 2.226v3.293c0 .317.22.691.823.578C20.563 21.791 24 17.303 24 12 24 5.373 18.627 0 12 0z"/>
+                    </svg></a>
+              </li>
+              <li class="ms-3"><a class="text-body-secondary" href="#"><img alt="Logo" src="../static/img/logo-white.svg" style="width: 30px; height: auto; display: block; margin: 0 auto;"></a></li>
+        </ul>
+    </footer>
+
+</html>
